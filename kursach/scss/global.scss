@@ -1,0 +1,180 @@
+$font-primary: "serati", sans-serif;
+$color-white: white;
+$color-accent: rgb(204, 83, 204);
+$color-bg: #121212;
+$color-border: rgb(36, 34, 34);
+$border-radius-btn: 15rem;
+
+@font-face {
+  font-family: "serati";
+  src: url("fonts/saira.woff") format("woff");
+}
+
+body {
+  background: radial-gradient(circle at 60% 10%, $color-bg, #141313), $color-bg;
+  margin: 0 8%;
+  color: $color-white;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+h1, h2, p {
+  font-family: $font-primary;
+  color: $color-white;
+}
+
+header {
+  padding: 10px 0;
+  display: flex;
+  border-bottom: $color-border 2px solid;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+
+  .logo {
+    display: flex;
+    height: 70px;
+    width: 150px;
+  }
+
+  .nav {
+    list-style: none;
+    margin: auto;
+    width: 30rem;
+
+    > li {
+      display: inline-block;
+    }
+  }
+}
+
+.mainMenuButton, .ticketsButton {
+  width: 100%;
+  height: 100%;
+  font-size: 1.3rem;
+  border: none;
+  border-radius: $border-radius-btn;
+  transition: color 0.5s;
+  background-color: $color-bg;
+  color: $color-accent;
+
+  &:hover {
+    cursor: pointer;
+    color: $color-white;
+  }
+}
+
+.mainMenuButton {
+  margin-right: 50px;
+}
+
+footer {
+  font-family: 'Times New Roman', Times, serif;
+  padding: 40px 0 20px;
+  border-top: $color-border 2px solid;
+
+  .footerContent {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    width: 90vw;
+  }
+
+  .footerColumn {
+    width: 23%;
+    margin-bottom: 20px;
+
+    h3 {
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin-bottom: 8px;
+
+        a {
+          color: $color-white;
+          text-decoration: none;
+          transition: color 0.3s;
+
+          &:hover {
+            color: $color-accent;
+          }
+        }
+      }
+    }
+  }
+
+  .social-links {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 15px;
+
+    a {
+        color: $color-white;
+        width: 100%;
+        text-decoration: none;
+        transition: color 0.3s;
+        margin-right: 15px;
+        margin-bottom: 8px;
+        font-size: 20px;
+        svg{
+          width: 20px;
+          height: 20px;
+        }
+  
+        &:hover {
+          color: $color-accent;
+        }
+    }
+    
+  }
+
+  .copyright {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1280px) {
+  body {
+    margin: 0 3%;
+  }
+}
+
+@media (max-width: 480px) {
+  header
+  {
+    padding: 0;
+    .nav li
+    {
+      display: block;
+      margin: 0;
+      padding-right: 10px;
+      a
+      {
+        width: 30vw;
+        button{
+          width: 30vw;
+        }
+      }
+    }
+  }
+  footer
+  {
+      .footerContent {
+          justify-content: space-around;
+      }
+      .footerColumn {
+          width: 90vw;
+      }
+  }
+}

@@ -1,0 +1,194 @@
+$white: white;
+$dark-bg: rgb(37, 37, 37);
+$darker-bg: rgb(17, 17, 17);
+$main-font: Verdana, Geneva, Tahoma, sans-serif;
+$border-radius-small: 2px;
+$border-radius-medium: 10px;
+$border-radius-large: 20px;
+
+.mainInformation {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+h1, h2, p {
+  color: $white;
+  font-family: $main-font;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 0 0 10px 0;
+}
+
+.poster {
+  flex-shrink: 0;
+  margin-right: 2vw;
+
+  img {
+    width: 25vw;
+    height: 65vh;
+  }
+}
+
+.description {
+  flex-shrink: 0;
+}
+
+.plot {
+  font-size: 1.25rem;
+}
+
+.pictures {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-y: auto;
+  justify-content: space-between;
+  width: 100%;
+
+  > h1 {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
+.frame {
+  height: 180px;
+  width: 300px;
+  background-size: 100%;
+}
+
+video {
+  width: 100%;
+}
+
+.commentsSection {
+  height: 200px;
+}
+
+.sendBtn {
+  background-color: $dark-bg;
+  color: $white;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: $border-radius-small;
+  width: 200px;
+  height: 50px;
+
+  &:active {
+    background-color: $darker-bg;
+    border: $white 2px solid;
+  }
+}
+
+#messages {
+  height: 200px;
+}
+
+#reviews {
+  color: $white;
+  font-size: 1.5rem;
+  list-style-type: none;
+  padding: 0;
+
+  > li {
+    background-color: $dark-bg;
+    border-radius: $border-radius-large;
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+}
+
+input, textarea {
+  background-color: $dark-bg;
+  color: $white;
+  border: none;
+  border-radius: $border-radius-large;
+}
+
+.reviewLabel {
+  display: block;
+}
+
+textarea {
+  height: 10rem;
+  width: 50%;
+  border-radius: $border-radius-medium;
+}
+
+.reviewNickname {
+  display: inline-block;
+  margin: 0;
+  width: 100px;
+}
+
+.reviewDate {
+  display: inline-block;
+  margin: 0;
+  width: 400px;
+}
+
+.reviewComment, .reviewDate {
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .poster img {
+    margin-left: 20px;
+    width: 90vw;
+    height: 95vh;
+  }
+
+  .frame {
+    width: 90vw;
+    height: 50vh;
+    margin: 0 0 0 60px;
+  }
+
+  .pictures {
+    padding-right: 60px;
+  }
+
+  textarea {
+    width: 90vw;
+  }
+}
+
+@media (max-width: 1280px) and (min-width: 790px) {
+  .poster img {
+    width: 30vw;
+    height: 60vh;
+  }
+
+  .frame {
+    width: 100vw;
+    height: 80vh;
+    margin: 0 0 0 100px;
+  }
+
+  .pictures {
+    padding-right: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pictures {
+    padding-right: 20px;
+    width: 90vw;
+  }
+
+  .description {
+    width: 100%;
+  }
+
+  .poster img {
+    height: 55vh;
+    margin-left: 20px;
+  }
+
+  .frame {
+    height: 30vh;
+    margin: 0 0 0 20px;
+  }
+}

@@ -1,0 +1,246 @@
+$bg-dark: rgb(37, 37, 37);
+$bg-darker: #121212;
+$primary-color: #ffab00;
+$primary-hover: #ffc107;
+$seat-available: #4CAF50;
+$seat-selected: #ffab00;
+$seat-reserved: #f44336;
+$screen-color: #1a237e;
+$border-radius: (
+  small: 3px,
+  medium: 4px,
+  large: 6px,
+  xlarge: 8px
+);
+
+main {
+  display: flex;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.eventInfo {
+  background-color: $bg-dark;
+  flex: 1;
+  min-width: 300px;
+  padding: 0 25px 25px;
+  border-radius: map-get($border-radius, xlarge);
+  margin-right: 30px;
+  margin-bottom: 30px;
+
+  div {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  img {
+    width: 21rem;
+    height: 31rem;
+    border-radius: map-get($border-radius, medium);
+    margin-bottom: 10px;
+  }
+}
+
+.eventTitle {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.eventDescription {
+  margin-bottom: 20px;
+
+  > h1, p {
+    margin-bottom: 10px;
+  }
+}
+
+.bookingForm {
+  background-color: $bg-dark;
+  flex: 2;
+  min-width: 400px;
+  padding: 25px;
+  border-radius: map-get($border-radius, xlarge);
+}
+
+.formTitle {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+  }
+}
+
+.formControl {
+  background-color: $bg-darker;
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: map-get($border-radius, medium);
+  font-size: 16px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.dateTimeSelector {
+  display: flex;
+  gap: 15px;
+
+  > div {
+    flex: 1;
+  }
+}
+
+.hallLayout {
+  margin-top: 20px;
+}
+
+.screen {
+  text-align: center;
+  background: $screen-color;
+  color: white;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: map-get($border-radius, medium);
+}
+
+.seatsGrid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.seat {
+  width: 30px;
+  height: 30px;
+  background: $seat-available;
+  border-radius: map-get($border-radius, medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    background: darken($seat-available, 10%);
+  }
+
+  &.selected {
+    background: $seat-selected;
+    color: $screen-color;
+  }
+
+  &.reserved {
+    background: $seat-reserved;
+    cursor: not-allowed;
+  }
+
+  &.rowLegend {
+    background: transparent;
+    cursor: default;
+    font-size: 12px;
+
+    &:hover {
+      background: transparent;
+    }
+  }
+}
+
+.seatLegend {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+}
+
+.legendColor {
+  width: 15px;
+  height: 15px;
+  border-radius: map-get($border-radius, small);
+
+  &.freeSeatLegend {
+    background: $seat-available;
+  }
+
+  &.selectedSeatLegend {
+    background: $seat-selected;
+  }
+
+  &.reservedSeatLegend {
+    background: $seat-reserved;
+  }
+}
+
+.priceSummary {
+  padding: 20px;
+  border-radius: map-get($border-radius, large);
+  margin-top: 20px;
+}
+
+.priceRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.totalPrice {
+  font-weight: bold;
+  font-size: 18px;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+.btnPrimary {
+  background-color: $primary-color;
+  padding: 12px 30px;
+  border: none;
+  border-radius: map-get($border-radius, medium);
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  margin-top: 20px;
+
+  &:hover {
+    background-color: $primary-hover;
+  }
+}
+
+@media (max-width: 768px) {
+  .eventInfo {
+    margin-right: 0;
+    width: 90vw;
+
+    img {
+      width: 70vw;
+      height: 85vh;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .eventInfo img {
+    height: 55vh;
+  }
+}
